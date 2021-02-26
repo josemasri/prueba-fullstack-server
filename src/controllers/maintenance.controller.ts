@@ -7,7 +7,7 @@ export const getAllMaintenance = async (
   res: Response
 ): Promise<void> => {
   try {
-    const maintenances = await Maintenance.find({}).populate('car');
+    const maintenances = await Maintenance.find({}).populate('car').maxTimeMS(20000);
     res.json(maintenances);
   } catch (error) {
     res.status(401).json(error);

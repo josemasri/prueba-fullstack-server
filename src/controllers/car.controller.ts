@@ -6,7 +6,7 @@ export const getAllCars = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const cars = await Car.find();
+  const cars = await Car.find().maxTimeMS(20000);
 
   res.send(
     cars.map(({ description,  carModel, make, estimatedate, image, id }) => ({
