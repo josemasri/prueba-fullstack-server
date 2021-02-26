@@ -32,7 +32,7 @@ export const addCar = async (req: Request, res: Response): Promise<void> => {
   } catch (error) {
     console.log(error)
     res.status(500).send({
-      message: 'An error ocurred on creating',
+      message: 'An error ocurred on creating a car',
       error,
     });
   }
