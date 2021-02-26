@@ -26,18 +26,11 @@ export const addCar = async (req: Request, res: Response): Promise<void> => {
   const car = new Car(body);
   try {
     await car.save();
-    delete car.__v;
-    delete car._id;
-    const newCar = {
-      ...car,
-      model: car.carModel,
-    };
-    delete newCar.carModel;
     res.send({
       message: 'Car created Succesfully',
-      newCar,
     });
   } catch (error) {
+    console.log(error)
     res.status(500).send({
       message: 'An error ocurred',
       error,
