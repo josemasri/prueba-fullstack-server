@@ -24,9 +24,7 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use('/', express.static(path.join(__dirname, 'public')));
-
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/car', carRoutes);
 
