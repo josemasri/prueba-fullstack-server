@@ -26,7 +26,7 @@
     "start": "node dist/app.js",
     "dev": "nodemon src/app.ts",
     "build": "tsc -p .",
-    "postinstall": "build"
+    "postinstall": "tsc -p ."
   },
   "author": "",
   "license": "ISC",
