@@ -6,8 +6,12 @@ export const getAllMaintenance = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const maintenances = await Maintenance.find({}).populate('car');
-  res.json(maintenances);
+  try {
+    const maintenances = await Maintenance.find({}).populate('car');
+    res.json(maintenances);
+  } catch (error) {
+    res.status(401).json(error);
+  }
 };
 
 export const createMaintenance = async (
